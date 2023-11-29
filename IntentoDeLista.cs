@@ -135,66 +135,82 @@ namespace rEric
         }
         public void OrdenarBurbuja()
         {
-            //ES COMO LOS DOS IFS QUE UTILIZABAMOS
-            //I Y J
-            Nodo actual = primerNodo;
-            Nodo siguiente;
-
-            // Recorremos la lista de principio a fin
-            while (actual != null)
+            if (ListaVacia())
             {
-                // Inicializamos el siguiente nodo al siguiente de actual
-                siguiente = actual.Siguiente;
+                Console.WriteLine("No se puede ordenar nada por que esta vacia la lista");
+            }
+            else
+            {
+                //ES COMO LOS DOS IFS QUE UTILIZABAMOS
+                //I Y J
+                Nodo actual = primerNodo;
+                Nodo siguiente;
 
-                // Mientras el siguiente nodo no sea null
-                while (siguiente != null)
+                // Recorremos la lista de principio a fin
+                while (actual != null)
                 {
-                    // Si el valor actual es mayor que el valor del siguiente
-                    if (actual.Valor._edad > siguiente.Valor._edad)
+                    // Inicializamos el siguiente nodo al siguiente de actual
+                    siguiente = actual.Siguiente;
+
+                    // Mientras el siguiente nodo no sea null
+                    while (siguiente != null)
                     {
-                        // Intercambiamos los valores de los dos nodos
-                        int temp = actual.Valor._edad;
-                        actual.Valor._edad = siguiente.Valor._edad;
-                        siguiente.Valor._edad = temp;
+                        // Si el valor actual es mayor que el valor del siguiente
+                        if (actual.Valor._edad > siguiente.Valor._edad)
+                        {
+                            // Intercambiamos los valores de los dos nodos
+                            int temp = actual.Valor._edad;
+                            actual.Valor._edad = siguiente.Valor._edad;
+                            siguiente.Valor._edad = temp;
+                        }
+
+                        // Avanzamos al siguiente nodo
+                        siguiente = siguiente.Siguiente;
                     }
 
                     // Avanzamos al siguiente nodo
-                    siguiente = siguiente.Siguiente;
+                    actual = actual.Siguiente;
                 }
-
-                // Avanzamos al siguiente nodo
-                actual = actual.Siguiente;
             }
+           
         }
 
         //BUSQUEDA 
         public void BuscarLineal(int edad)
         {
-            bool existe=false;
-            Nodo actual = primerNodo;
-            int contador = 0;
-
-            // Recorremos la lista de principio a fin
-            while (actual != null)
+            if (ListaVacia())
             {
-                // Si el valor actual es igual al valor buscado
-                if (actual.Valor._edad == edad)
+                Console.WriteLine("Esta vacia la lista");
+            }
+            else
+            {
+                bool existe = false;
+                Nodo actual = primerNodo;
+                int contador = 0;
+
+                // Recorremos la lista de principio a fin
+                while (actual != null)
                 {
-                    // Devolvemos la posición del elemento en la lista
-                    Console.WriteLine("El numero esta en la posicion " + contador);
-                    existe = true;
-                    break;
-                }
-                
+                    // Si el valor actual es igual al valor buscado
+                    if (actual.Valor._edad == edad)
+                    {
+                        // Devolvemos la posición del elemento en la lista
+                        Console.WriteLine("El numero esta en la posicion " + contador);
+                        existe = true;
+                        break;
+                    }
 
-                // Avanzamos al siguiente nodo
-                actual = actual.Siguiente;
-                contador++;
+
+                    // Avanzamos al siguiente nodo
+                    actual = actual.Siguiente;
+                    contador++;
+                }
+                if (existe == false)
+                {
+                    Console.WriteLine("Ese numero no existe");
+                }
             }
-            if (existe == false)
-            {
-                Console.WriteLine("Ese numero no existe");
-            }
+           
             
 
             

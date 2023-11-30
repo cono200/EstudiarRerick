@@ -24,7 +24,11 @@ namespace rEric
             get { return _siguiente; }
         }
 
-
+          public Nodo(persona persona, Nodo Siguiente)
+        {
+            this._valor= persona;
+            this._siguiente= Siguiente;
+        }
         public Nodo(persona Valor)
         {
             _valor = Valor;

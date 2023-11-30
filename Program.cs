@@ -12,10 +12,11 @@
             //intentoDeLista1.InsertarInicio(new persona("2", 58));
             //intentoDeLista1.InsertarInicio(new persona("3", 58));
 
-            intentoDeLista1.InsertarMedioLista(new persona("MEDIO", 15));
-            intentoDeLista1.InsertarMedioLista(new persona("sfdsf", 90));
-            intentoDeLista1.InsertarMedioLista(new persona("MEDIO", 30));
-           intentoDeLista1.BusquedalinealPorEdad(90);
+            intentoDeLista1.InsertarInicio(new persona("aaaaa", 12));
+            intentoDeLista1.InsertarInicio(new persona("aaaaa", 13));
+            intentoDeLista1.InsertarMedioLista(new persona("aaaaa", 55));
+           // intentoDeLista1.BusquedaBinariaPorEdad(55);
+          // intentoDeLista1.BusquedalinealPorEdad(90);
             //intentoDeLista1.OrdenarBurbuja();
             intentoDeLista1.ImprimirLista();
             

@@ -8,58 +8,7 @@ namespace rEric
 {
     public class IntentoDeLista
     {
-        //Nodo primerNodo;
-        //Nodo ultimoNodo;
-
-        ////INICALIZAR LA LISTA
-        //public IntentoDeLista()
-        //{
-        //    primerNodo = null;
-        //    ultimoNodo = null;
-        //}
-        ////METODO PARA SABER SI ESTA VACIO O NO
-        //public bool ListaVacia()
-        //{
-        //    return (primerNodo == null);
-        //}
-
-        ////Insertar AL FINAL
-
-        //public void InsertarFinal(persona persona)
-        //{
-        //    Nodo nuevoNodo = new Nodo(persona);
-
-        //    if (ListaVacia())
-        //    {
-        //        primerNodo = nuevoNodo;
-        //        ultimoNodo = nuevoNodo;
-        //    }
-        //    else
-        //    {
-        //        ultimoNodo.Siguiente = nuevoNodo;
-        //        ultimoNodo = nuevoNodo;
-        //    }
-        //}
-
-        ////METODO IMPRIMIR
-
-        //public void ImprimirLista()
-        //{
-        //    Nodo actual = primerNodo;
-
-        //    if (ListaVacia())
-        //    {
-        //        Console.WriteLine("La lista esta vacia");
-        //    }
-        //    else
-        //    {
-        //        while (actual != null)
-        //        {
-        //            Console.WriteLine($"Su nombre es { actual.Valor._nombre } y  su edad es {actual.Valor._edad}");
-        //            actual = actual.Siguiente;
-        //        }
-        //    }
-        //}
+        
 
 
         Nodo primerNodo;
@@ -94,7 +43,7 @@ namespace rEric
             {
                 nuevoNodo.Siguiente = primerNodo;
                 primerNodo = nuevoNodo;
-            }  
+            }
         }
 
         public void InsertarFinal(persona persona)
@@ -111,7 +60,73 @@ namespace rEric
                 ultimoNodo = nuevoNodo;
             }
         }
+        //LONGITUD LISTA
+        public int LongitudLista()
+        {
+            if (ListaVacia())
+            {
+                return -1;
+            }
+            else
+            {
+                int contador = 0;
+                Nodo actual = primerNodo;
 
+                while (actual != null)
+                {
+                    contador++;
+
+                    actual = actual.Siguiente;
+                }
+                return contador;
+            }
+        }
+
+        //INSERTAR MEDIO
+        public void InsertarMedioLista(persona persona)
+        {
+            // Comprueba si la lista está vacía. Si lo está, inserta el nuevo nodo en la primera posición.
+            if (ListaVacia())
+            {
+                primerNodo = ultimoNodo = new Nodo(persona);
+                
+            }
+            else
+            {
+                // Calcula la longitud de la lista.
+                int longitud = LongitudLista();
+
+                // Inicializa las variables de control.
+                Nodo actual = primerNodo;
+                int posicion = 1;
+
+                // Itera por la lista hasta encontrar la posición media.
+                while (actual.Siguiente != null && posicion < longitud / 2)
+                {
+                    posicion++;
+                    actual = actual.Siguiente;
+                }
+
+                // Guarda la referencia al nodo anterior al nuevo nodo.
+                Nodo anterior = actual;
+
+                // Crea el nuevo nodo.
+                Nodo nuevo = new Nodo(persona);
+
+                // Asigna el siguiente nodo del nuevo nodo al siguiente nodo del nodo anterior.
+                nuevo.Siguiente = actual.Siguiente;
+
+                // Asigna el nuevo nodo como siguiente nodo del nodo anterior.
+                anterior.Siguiente = nuevo;
+
+                // Actualiza el valor de ultimoNodo si el nuevo nodo se inserta al final de la lista.
+                if (actual == ultimoNodo)
+                {
+                    ultimoNodo = nuevo;
+                }
+            }
+           
+        }
         //IMPRIMIR
 
         public void ImprimirLista()
@@ -133,6 +148,40 @@ namespace rEric
                 }
             }
         }
+        //BUSQUEDA BINARIA
+        public void BusquedalinealPorEdad(int edadABuscar)
+        {
+            // Primero, asegúrate de que la lista esté ordenada por edad
+            OrdenarBurbuja();
+
+            Nodo actual = primerNodo;
+            Nodo anterior = null;
+            bool encontrado = false;
+            int contador = 0;
+            while (actual != null)
+            {
+                contador++;
+                if (actual.Valor._edad == edadABuscar)
+                {
+                    Console.WriteLine("Se encontró una persona con la edad de " + edadABuscar + "Y esta en la posicion " + contador);
+                    Console.WriteLine("Nombre: " + actual.Valor._nombre);
+                    Console.WriteLine("Edad: " + actual.Valor._edad);
+                    encontrado = true;
+                    break;
+                }
+                anterior = actual;
+                actual = actual.Siguiente;
+            }
+
+            if (!encontrado)
+            {
+                Console.WriteLine("No se encontró ninguna persona con la edad de " + edadABuscar);
+            }
+        }
+
+
+
+
         public void OrdenarBurbuja()
         {
             if (ListaVacia())
@@ -172,54 +221,16 @@ namespace rEric
                     actual = actual.Siguiente;
                 }
             }
-           
+
         }
 
-        //BUSQUEDA 
-        public void BuscarLineal(int edad)
-        {
-            if (ListaVacia())
-            {
-                Console.WriteLine("Esta vacia la lista");
-            }
-            else
-            {
-                bool existe = false;
-                Nodo actual = primerNodo;
-                int contador = 0;
-
-                // Recorremos la lista de principio a fin
-                while (actual != null)
-                {
-                    // Si el valor actual es igual al valor buscado
-                    if (actual.Valor._edad == edad)
-                    {
-                        // Devolvemos la posición del elemento en la lista
-                        Console.WriteLine("El numero esta en la posicion " + contador);
-                        existe = true;
-                        break;
-                    }
-
-
-                    // Avanzamos al siguiente nodo
-                    actual = actual.Siguiente;
-                    contador++;
-                }
-                if (existe == false)
-                {
-                    Console.WriteLine("Ese numero no existe");
-                }
-            }
-           
-            
-
-            
-            
-        }
-
-        
-
+       
 
 
     }
-}
+    }
+     
+       
+            
+
+

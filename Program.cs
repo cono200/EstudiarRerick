@@ -12,14 +12,13 @@
             //intentoDeLista1.InsertarInicio(new persona("2", 58));
             //intentoDeLista1.InsertarInicio(new persona("3", 58));
 
-            intentoDeLista1.InsertarFinal(new persona("1", 78));
-            intentoDeLista1.InsertarFinal(new persona("2", 40));
-            intentoDeLista1.InsertarFinal(new persona("3", 1));
-
+            intentoDeLista1.InsertarMedioLista(new persona("MEDIO", 15));
+            intentoDeLista1.InsertarMedioLista(new persona("sfdsf", 90));
+            intentoDeLista1.InsertarMedioLista(new persona("MEDIO", 30));
+           intentoDeLista1.BusquedalinealPorEdad(90);
             //intentoDeLista1.OrdenarBurbuja();
             intentoDeLista1.ImprimirLista();
-
-            intentoDeLista1.BuscarLineal(6262);
+            
         }
     }
 }

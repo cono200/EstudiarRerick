@@ -95,7 +95,7 @@ namespace rEric
             {
                 int logitud = LongitudLista();
                 Nodo actual = primerNodo;
-                int iterador = 1;
+                int iterador = 1; //TAMBIEN CONOCIDO COMO CONTADOR
                 Nodo anterior = null;
                 while (actual.Siguiente != null && iterador < logitud / 2)
                 {

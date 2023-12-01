@@ -109,57 +109,6 @@ namespace rEric
                 anterior.Siguiente = nuevo;
 
             }
-
-
-
-
-
-
-
-
-
-
-            //// Comprueba si la lista está vacía. Si lo está, inserta el nuevo nodo en la primera posición.
-            //if (ListaVacia())
-            //{
-            //    primerNodo = ultimoNodo = new Nodo(persona);
-
-            //}
-            //else
-            //{
-            //    // Calcula la longitud de la lista.
-            //    int longitud = LongitudLista();
-
-            //    // Inicializa las variables de control.
-            //    Nodo actual = primerNodo;
-            //    int posicion = 1;
-
-            //    // Itera por la lista hasta encontrar la posición media.
-            //    while (actual.Siguiente != null && posicion < longitud / 2)
-            //    {
-            //        posicion++;
-            //        actual = actual.Siguiente;
-            //    }
-
-            //    // Guarda la referencia al nodo anterior al nuevo nodo.
-            //    Nodo anterior = actual;
-
-            //    // Crea el nuevo nodo.
-            //    Nodo nuevo = new Nodo(persona);
-
-            //    // Asigna el siguiente nodo del nuevo nodo al siguiente nodo del nodo anterior.
-            //    nuevo.Siguiente = actual.Siguiente;
-
-            //    // Asigna el nuevo nodo como siguiente nodo del nodo anterior.
-            //    anterior.Siguiente = nuevo;
-
-            //    // Actualiza el valor de ultimoNodo si el nuevo nodo se inserta al final de la lista.
-            //    if (actual == ultimoNodo)
-            //    {
-            //        ultimoNodo = nuevo;
-            //    }
-            // }
-
         }
         //IMPRIMIR
 

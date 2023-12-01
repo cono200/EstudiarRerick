@@ -95,15 +95,23 @@ namespace rEric
             {
                 int logitud = LongitudLista();
                 Nodo actual = primerNodo;
-                int iterador = 1; //TAMBIEN CONOCIDO COMO CONTADOR
+                //TIENE QUE SER IGUAL A 1, PARA QUE INICIE INICIALIZADO
+                int contador = 1;
+                //NODO (O VALOR) QUE GUARDA EL VALOR DE LA MITAD DE LA LISTA
                 Nodo anterior = null;
-                while (actual.Siguiente != null && iterador < logitud / 2)
+                //MIENTRAS QUE EXISTA NUMEROS Y QUE EL CONTADOR TODAVIA NO LLEGUE A LA MITAD
+                //ENTRE EN EL CICLO
+                while (actual.Siguiente != null && contador < logitud / 2)
                 {
-                    iterador++;
+                    //INCLEMENTAR EL CONTADOR
+                    contador++;
+                    //RECORRER AL SIGUIENTE NUMERO
                     actual = actual.Siguiente;
 
                 }
+                //GUARDAMOS EL VALOR DEL MEDIO
                 anterior = actual;
+                //SE TIENE QUE GUARDAR EL DATO DE PERSONA Y EL APUNTADOR AL SIGUIENTE
                 Nodo nuevo = new Nodo(persona, actual.Siguiente);
                
                 anterior.Siguiente = nuevo;
@@ -157,10 +165,10 @@ namespace rEric
                 }
 
                 // Si actual es null, la lista no tiene suficientes elementos
-                if (actual == null)
-                {
-                    break;
-                }
+                //if (actual == null)
+                //{
+                //    break;
+                //}
 
                 // Si la edad del nodo en la posición media es igual a la edad buscada
                 if (actual.Valor._edad == edadABuscar)
